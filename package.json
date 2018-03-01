@@ -4,13 +4,16 @@
   "description": "Receiving Emails as Contributions for NatureNet",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mahzoon/NN-Email-Automation.git"
   },
-  "author": "",
+  "author": "MJ",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mahzoon/NN-Email-Automation/issues"
