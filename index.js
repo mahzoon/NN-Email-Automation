@@ -10,6 +10,11 @@ app.listen(app.get('port'), function() {
            console.log("Node app is running at localhost:" + app.get('port'))
            })
 
+app.get('/', function(req, res) {
+        console.log("Ok.")
+        return res.redirect(200, "OK")
+         })
+
 app.post('/addMessage', function(req, res) {
     if (req.headers['content-type'].startsWith('multipart/form-data')) {
         const busboy = new Busboy({ headers: req.headers })
