@@ -11,7 +11,7 @@ cloudinary.config({ cloud_name: 'university-of-colorado' });
 
 http.createServer(function(req, res) {
     /* Process the form uploads */
-    if (req.url == '/addMessage' && req.method.toLowerCase() == 'post') {
+    if (req.url == '/addEmailObservation' && req.method.toLowerCase() == 'post') {
     var form = new formidable.IncomingForm();
     form.parse(req, function(err, fields, files) {
              res.writeHead(200, {'content-type': 'text/plain'});
