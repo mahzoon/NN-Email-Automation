@@ -51,8 +51,6 @@ http.createServer(function(req, res) {
                                         
                                         // Set up the request
                                         var postReq = http.request(postParams, function(res) {
-                                               console.log(`STATUS: ${res.statusCode}`);
-                                               console.log('HEADERS:', JSON.stringify(res.headers));
                                                                    
                                                 res.setEncoding('utf8');
                                                                    
