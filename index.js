@@ -48,14 +48,19 @@ http.createServer(function(req, res) {
                                         path: '/addEmailObservation',
                                         method: 'POST',
                                         headers: {
-                                        'Content-Type': 'application/x-www-form-urlencoded',
+                                        'content-type': 'application/x-www-form-urlencoded',
                                         'Content-Length': Buffer.byteLength(observation)
                                         }
                                         };
                                         
                                         // Set up the request
                                         var postReq = http.request(postParams, function(res) {
-                                                                    res.setEncoding('utf8');
+                                               console.log(`STATUS: ${res.statusCode}`);
+                                                res.setEncoding('utf8');
+                                        });
+                                        
+                                        postReq.on('error', (e) => {
+                                               console.error(`problem with request: ${e.message}`);
                                         });
                                         
                                         // post the data
