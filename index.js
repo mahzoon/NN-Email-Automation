@@ -4,6 +4,7 @@
 var formidable = require('formidable'),
     http = require('http'),
     cloudinary = require('cloudinary'),
+    querystring = require('querystring'),
     fs = require('fs');
 
 cloudinary.config({ cloud_name: 'university-of-colorado' });
