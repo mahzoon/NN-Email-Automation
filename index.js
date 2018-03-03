@@ -43,7 +43,8 @@ http.createServer(function(req, res) {
                                         
                                         // An object of options to indicate where to post to
                                         var postParams = {
-                                        host: 'https://us-central1-automated-email-client.cloudfunctions.net/',
+                                        host: 'https://us-central1-automated-email-client.cloudfunctions.net',
+                                        port: 443,
                                         path: '/addEmailObservation',
                                         method: 'POST',
                                         headers: {
