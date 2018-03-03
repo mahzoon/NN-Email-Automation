@@ -51,20 +51,13 @@ http.createServer(function(req, res) {
                                         
                                         // Set up the request
                                         var postReq = http.request(postParams, function(res) {
-                                                                   
-                                                res.setEncoding('utf8');
-                                                                   
-                                           res.on('data', function (chunk) {
-                                                  console.log('BODY:', chunk);
-                                                  });
-                                           
-                                           res.on('end', function () {
-                                                  console.log('No more data in response.');
-                                                  });
+                                            res.setEncoding('utf8');
+                                            res.on('data', function (chunk) {});
+                                            res.on('end', function () {});
                                         });
                                         
                                         postReq.on('error', (e) => {
-                                               console.error(`problem with request: ${e.message}`);
+                                            console.error(`problem with request: ${e.message}`);
                                         });
                                         
                                         // post the data
