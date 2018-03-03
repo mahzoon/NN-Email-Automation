@@ -41,19 +41,28 @@ http.createServer(function(req, res) {
                                         // An object of options to indicate where to post to
                                         var postParams = {
                                         host: 'us-central1-automated-email-client.cloudfunctions.net',
-                                        port: 443,
                                         path: '/addEmailObservation',
                                         method: 'POST',
                                         headers: {
                                         'content-type': 'application/x-www-form-urlencoded',
-                                        'Content-Length': Buffer.byteLength(observation)
+                                        'Content-Length': observation.length
                                         }
                                         };
                                         
                                         // Set up the request
                                         var postReq = http.request(postParams, function(res) {
                                                console.log(`STATUS: ${res.statusCode}`);
+                                               console.log('HEADERS:', JSON.stringify(res.headers));
+                                                                   
                                                 res.setEncoding('utf8');
+                                                                   
+                                           res.on('data', function (chunk) {
+                                                  console.log('BODY:', chunk);
+                                                  });
+                                           
+                                           res.on('end', function () {
+                                                  console.log('No more data in response.');
+                                                  });
                                         });
                                         
                                         postReq.on('error', (e) => {
