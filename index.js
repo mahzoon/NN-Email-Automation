@@ -25,10 +25,7 @@ http.createServer(function(req, res) {
                                         
 //                  cloudinary.uploader.unsigned_upload(file.path, 'web-preset', function(result) {
 //                                                      console.log(result)
-//                                                      fs.unlink(file.path, (err) => {
-//                                                                if (err) console.log(err);
-//                                                                });
-//                                                      });
+//});
                                         
                                         // make firebase request to add the email observation
                                         
@@ -43,9 +40,8 @@ http.createServer(function(req, res) {
                                         
                                         // An object of options to indicate where to post to
                                         var postParams = {
-                                        host: 'us-central1-automated-email-client.cloudfunctions.net',
+                                        host: 'us-central1-automated-email-client.cloudfunctions.net/addEmailObservation',
                                         port: 443,
-                                        path: '/addEmailObservation',
                                         method: 'POST',
                                         headers: {
                                         'content-type': 'application/x-www-form-urlencoded',
@@ -67,6 +63,9 @@ http.createServer(function(req, res) {
                                         postReq.write(observation);
                                         postReq.end();
                                         
+                                        // delete the temp file
+                                        fs.unlink(file.path, (err) => { if (err) console.log(err); });
+               
                                         counter = counter + 1;
                                         
              });
