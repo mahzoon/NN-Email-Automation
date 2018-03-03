@@ -23,9 +23,9 @@ http.createServer(function(req, res) {
                   var file = files[key];
                   filesList.push(file.path);
                                         
-//                  cloudinary.uploader.unsigned_upload(file.path, 'web-preset', function(result) {
-//                                                      console.log(result)
-//});
+                  cloudinary.uploader.unsigned_upload(file.path, 'web-preset', function(result) {
+                                                      console.log(result)
+                                                    });
                                         
                                         // make firebase request to add the email observation
                                         
